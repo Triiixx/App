@@ -69,7 +69,11 @@ function render() {
     div.innerHTML = `
       <img src="${p.image}" />
       <h3>${p.name}</h3>
-      <button onclick="event.stopPropagation(); deleteProduct(${i})">Delete</button>
+      ${admin.style.display === 'block'
+  ? `<button onclick="event.stopPropagation(); deleteProduct(${i})">Delete</button>`
+  : ''
+}
+
     `;
     div.onclick = () => openModal(p);
     grid.appendChild(div);
@@ -109,7 +113,20 @@ render();
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('sw.js');
 }
+
+const ADMIN_PIN = "1234"; // change this
+
+function unlockAdmin() {
+  if (pin.value === ADMIN_PIN) {
+    admin.style.display = 'block';
+    adminUnlock.style.display = 'none';
+  } else {
+    alert("Wrong PIN");
+  }
+}
+
 </script>
 </body>
 </html>
+
 
