@@ -38,8 +38,13 @@
   </div>
 </div>
 
+<div id="adminUnlock" style="text-align:center; margin-top:30px;">
+  <input id="pin" type="password" placeholder="Admin PIN" />
+  <button onclick="unlockAdmin()">Unlock Admin</button>
+</div>
+
 <!-- Admin Section -->
-<div class="admin">
+<div class="admin" id="admin" style="display:none">
   <h2>Admin: Add / Delete Products</h2>
   <input id="name" placeholder="Product name" />
   <textarea id="desc" placeholder="Description"></textarea>
@@ -107,3 +112,4 @@ if ('serviceWorker' in navigator) {
 </script>
 </body>
 </html>
+
